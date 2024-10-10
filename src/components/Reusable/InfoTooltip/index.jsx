@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-const InfoTooltip = () => {
-  return (
-    <div>InfoTooltip</div>
-  )
-}
+const InfoTooltip = ({ text }) => (
+  <div className="info-tooltip">
+    <button className="info-button">i</button>
+    <span className="tooltip-text">{text}</span>
+  </div>
+);
 
-export {InfoTooltip}
+export default InfoTooltip
