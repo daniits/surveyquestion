@@ -1,0 +1,43 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "title": "Title",
+        "type": "dropdown",
+        "options": ["Mr", "Ms", "Mrs", "Miss", "Dr", "NA"]
+      },
+      {
+        "id": 2,
+        "title": "Date of Birth",
+        "type": "date",
+        "info": "Your Date of birth is required to accurately calculate your health age."
+      },
+      {
+        "id": 3,
+        "title": "Performance of other workers",
+        "type": "rating",
+        "scale": [1, 10]
+      },
+      {
+        "id": 4,
+        "title": "Sources of stress",
+        "type": "text",
+        "maxLength": 250,
+        "info": "Knowing other work or non-work drivers of stress may help your organization implement practices to counter these factors."
+      },
+      {
+        "id": 5,
+        "title": "Balance between work and non-work activities",
+        "type": "balance",
+        "options": [
+          "Ideal",
+          "Satisfactory",
+          "Challenging",
+          "Extremely Challenging",
+          "Unmanageable"
+        ]
+      }
+    ],
+    "responses": {}
+  }
+  
