@@ -9,7 +9,6 @@ const Survey = () => {
   const [responses, setResponses] = useState({});
 
   useEffect(() => {
-    // Fetch questions from JSON file
     axios.get('/surveyData.json')
       .then((res) => {
         setQuestions(res.data.questions);
@@ -37,7 +36,6 @@ const Survey = () => {
 
   const handleSubmit = () => {
     console.log('Responses:', responses);
-    // Here, you could handle the submission to a server or local storage.
   };
 
   const renderQuestion = () => {
@@ -87,7 +85,7 @@ const Survey = () => {
 
   return (
     <div className="survey-container">
-      <h1>Survey</h1>
+      {/* <h1>Survey</h1> */}
       {renderQuestion()}
       <div className="navigation-buttons">
         {currentQuestionIndex > 0 && (
@@ -103,4 +101,4 @@ const Survey = () => {
   );
 };
 
-export  {Survey};
+export { Survey };
