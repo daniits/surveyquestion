@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import InfoTooltip from '../InfoTooltip';
-
+import "./style.css"
 const DateInput = ({ question, onChange }) => {
   const [date, setDate] = useState({ day: '', month: '', year: '' });
 
@@ -10,9 +10,11 @@ const DateInput = ({ question, onChange }) => {
     onChange(question.id, updatedDate);
   }
   return (
-    <div className="question-wrapper">
-      <label>{question.title}</label>
-      <InfoTooltip text={question.info} />
+    <div className="container">
+      <div>
+        <label><p>2</p>{question.title}</label>
+        <InfoTooltip text={question.info} />
+      </div>
       <div className="date-inputs">
         <input
           type="number"

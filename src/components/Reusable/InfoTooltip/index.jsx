@@ -1,9 +1,9 @@
 import React from 'react';
+import "./style.css"
 
 const InfoTooltip = ({ text }) => (
   <div className="info-tooltip">
-    <button className="info-button">i</button>
-    <span className="tooltip-text">{text}</span>
+    <p className="info-button">i</p>
   </div>
 );
 

@@ -10,7 +10,7 @@
     gap: 10px;
     color: #FFF8FF;
     font-size: 16px;
-    margin-left: -40px;
+    margin-left: -30px;
 }
 .container > label > p {
     background-color: #fff;
@@ -33,19 +33,18 @@
     width: 100%;
     padding: 10px;
     padding-right: 50px; /* Add space for the icon, arrow, and line */
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #666;
     background-color: #9b708b; /* Use the purple background color */
     color: white;
     font-size: 16px;
-    appearance: none; /* Remove default arrow */
     cursor: pointer;
     position: relative;
   }
   
   /* Custom arrow */
   .container_dropdown_wrapper::after {
-    content: '▼'; /* Custom arrow icon */
+
     font-size: 12px;
     color: white;
     position: absolute;
@@ -84,4 +83,16 @@
     color: white;
     font-size: 16px;
   }
-      
+
+
+/* Styling the selected option when dropdown is closed */
+.container_dropdown option {
+    background-color: #9b708b; /* Option background */
+    color: white; /* Option text color */
+  }
+  
+  /* Hover effect for the dropdown options */
+  .container_dropdown option:hover {
+    background-color: #444444; /* Background color on hover */
+    color: yellow; /* Text color on hover */
+  }

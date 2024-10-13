@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+}
+.container > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container > div > label {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    gap: 10px;
+    color: #FFF8FF;
+    font-size: 16px;
+    margin-left: -30px;
+}
+.container > div > label > p {
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #705067;
+}
