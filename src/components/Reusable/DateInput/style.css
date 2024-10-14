@@ -14,7 +14,7 @@
     align-items: center;
     gap: 10px;
     color: #FFF8FF;
-    font-size: 16px;
+    font-size: 18px;
     margin-left: -30px;
 }
 .container > div > label > p {
@@ -28,3 +28,70 @@
     align-items: center;
     color: #705067;
 }
+.date-label {
+    font-size: 1.2em;
+    color: #ffffff;
+  }
+  
+  .date-inputs {
+    display: flex;
+    gap: 20px; 
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-container label {
+    font-size: 16px;
+    color: #FCEEF8;
+    margin-bottom: 5px;
+  }
+  
+  .date-input {
+    width: 80px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background-color: #917D8D;
+    border: none;
+    color: #FCEEF8 !important;
+    font-size: 14px;
+  }
+  .date-input::placeholder {
+    color: #FCEEF8;
+    opacity: 1;
+}
+  
+  .date-input:focus {
+    outline: none;
+    border: 2px solid #917D8D;
+  }
+
+  .ok-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4D3B4B;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .ok-button:hover {
+    background-color: #9a7fb9;
+  }
+  
+  .press-enter-text {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+  .button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    align-items: center;
+  }
+  

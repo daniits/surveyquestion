@@ -14,7 +14,8 @@
       },
       {
         "id": 3,
-        "title": "Performance of other workers",
+        "title": "On a scale of 1 10, with 10 being the highest, would you rate the following? ",
+        "subtitle": "The usual performance of most other workers in a job similar to yours",
         "type": "rating",
         "scale": [1, 10]
       },
