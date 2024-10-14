@@ -1,6 +1,6 @@
 .info-tooltip {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50px;
     border: 1px solid white;
     display: flex;
@@ -9,5 +9,6 @@
     color: white;
 }
 .info-button {
-    font-size: 12px;
+    font-size: 10px;
 }
+
