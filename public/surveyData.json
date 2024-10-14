@@ -21,14 +21,14 @@
       },
       {
         "id": 4,
-        "title": "Sources of stress",
+        "title": "Are there any other sources of stress not mentioned here that affect you?",
         "type": "text",
         "maxLength": 250,
         "info": "Knowing other work or non-work drivers of stress may help your organization implement practices to counter these factors."
       },
       {
         "id": 5,
-        "title": "Balance between work and non-work activities",
+        "title": "How would you describe the balance between your work and non-work activities?",
         "type": "balance",
         "options": [
           "Ideal",
