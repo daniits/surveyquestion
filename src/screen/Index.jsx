@@ -7,6 +7,7 @@ const Survey = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [responses, setResponses] = useState({});
   const [surveyCompleted, setSurveyCompleted] = useState(false);
+  console.log(surveyCompleted)
 
   useEffect(() => {
     axios.get('/surveyData.json')
@@ -37,7 +38,6 @@ const Survey = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    console.log('Responses saved as JSON:', responses);
   };
 
   const renderQuestion = () => {
