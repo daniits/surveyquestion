@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
 import "./style.css";
 
-const BalanceRating = ({ question, onChange }) => {
+const BalanceRating = ({ question, onChange, submitForm }) => {
   const [selectedOption, setSelectedOption] = useState(null);
-  const [isSubmitted, setIsSubmitted] = useState(false); // State to track if submission is done
+  const [isSubmitted, setIsSubmitted] = useState(false); 
 
   const handleClick = (option) => {
     setSelectedOption(option);
-    onChange(question.id, option);
+    onChange(question.id, option); 
   };
 
   const handleSubmit = () => {
     if (!selectedOption) {
       console.log("Please select an option before proceeding.");
-      return; // Do not proceed if no option is selected
+      return; 
     }
     
-    // Set the submission state to true
+
+    onChange(question.id, selectedOption); 
     setIsSubmitted(true);
-    console.log("Selected option submitted:", selectedOption);
+    submitForm();
   };
 
   const handleKeyPress = (event, option) => {
     if (event.key === 'Enter' || event.key === ' ') {
-      handleClick(option); // Trigger selection with Enter or Space key
+      handleClick(option);
     }
   };
 
   const optionLabels = ['A', 'B', 'C', 'D', 'E'];
 
-  // If the form has been submitted, show the thank you message
+
   if (isSubmitted) {
     return (
       <div className="thank-you-screen">

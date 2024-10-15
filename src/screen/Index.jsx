@@ -6,8 +6,7 @@ const Survey = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [responses, setResponses] = useState({});
-
-  console.log(responses)
+  const [surveyCompleted, setSurveyCompleted] = useState(false);
 
   useEffect(() => {
     axios.get('/surveyData.json')
@@ -22,17 +21,23 @@ const Survey = () => {
   const handleResponseChange = (questionId, value) => {
     setResponses((prev) => ({ ...prev, [questionId]: value }));
 
-    // Automatically move to the next question
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1);
     } else {
-      handleSubmit();
+      setSurveyCompleted(true);
     }
   };
 
   const handleSubmit = () => {
-    console.log('Responses:', responses);
-    // You can add functionality to save responses or trigger an action on submission.
+    const jsonString = JSON.stringify(responses, null, 2);
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'responses.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log('Responses saved as JSON:', responses);
   };
 
   const renderQuestion = () => {
@@ -41,40 +46,15 @@ const Survey = () => {
 
     switch (question.type) {
       case 'dropdown':
-        return (
-          <DropdownQuestion
-            question={question}
-            onChange={handleResponseChange}
-          />
-        );
+        return <DropdownQuestion question={question} onChange={handleResponseChange} />;
       case 'date':
-        return (
-          <DateInput
-            question={question}
-            onChange={handleResponseChange}
-          />
-        );
+        return <DateInput question={question} onChange={handleResponseChange} />;
       case 'rating':
-        return (
-          <RatingQuestion
-            question={question}
-            onChange={handleResponseChange}
-          />
-        );
+        return <RatingQuestion question={question} onChange={handleResponseChange} />;
       case 'text':
-        return (
-          <TextInput
-            question={question}
-            onChange={handleResponseChange}
-          />
-        );
+        return <TextInput question={question} onChange={handleResponseChange} />;
       case 'balance':
-        return (
-          <BalanceRating
-            question={question}
-            onChange={handleResponseChange}
-          />
-        );
+        return <BalanceRating question={question} onChange={handleResponseChange} submitForm={handleSubmit} />;
       default:
         return null;
     }
