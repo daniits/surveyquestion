@@ -36,7 +36,7 @@ const TextInput = ({ question, onChange }) => {
     <div className="container" onKeyPress={handleKeyPress}>
       <div>
         <label><p>4</p>{question.title}</label>
-        <InfoTooltip text={question.info} />
+        <InfoTooltip text={`Knowing other work or non work drivers of stress may help your organization implement practices to counter these factors. `}  />
       </div>
       <textarea
         value={text}

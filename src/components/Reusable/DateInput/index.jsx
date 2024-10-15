@@ -1,50 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InfoTooltip from '../InfoTooltip';
 import './style.css';
 
 const DateInput = ({ question, onChange }) => {
   const [date, setDate] = useState({ day: '', month: '', year: '' });
   const [errors, setErrors] = useState({ day: '', month: '', year: '' });
+  const [healthAge, setHealthAge] = useState(null);
 
   const handleChange = (field, value) => {
-    let updatedValue = value;
-
-    // Reset error for the current field
     setErrors({ ...errors, [field]: '' });
-
-    const updatedDate = { ...date, [field]: updatedValue };
+    const updatedDate = { ...date, [field]: value };
     setDate(updatedDate);
   };
 
   const handleBlur = (field, value) => {
-    let updatedValue = value;
     let errorMessage = '';
 
-    // Validate and show error if necessary
     if (value !== '') {
-      if (field === 'day') {
-        if (value > 31 || value < 1) {
-          errorMessage = 'Between 1 and 31';
-        }
-      } else if (field === 'month') {
-        if (value > 12 || value < 1) {
-          errorMessage = 'Between 1 and 12';
-        }
-      } else if (field === 'year') {
-        if (value > 2006 || value < 1920) {
-          errorMessage = 'Between 1920 and 2006';
-        }
+      if (field === 'day' && (value > 31 || value < 1)) {
+        errorMessage = 'Between 1 and 31';
+      } else if (field === 'month' && (value > 12 || value < 1)) {
+        errorMessage = 'Between 1 and 12';
+      } else if (field === 'year' && (value > 2006 || value < 1920)) {
+        errorMessage = 'Between 1920 and 2006';
       }
 
-      // Set error message if validation fails
-      if (errorMessage) {
-        setErrors({ ...errors, [field]: errorMessage });
-      } else {
-        // If no error, update the field
-        handleChange(field, updatedValue);
-      }
+      setErrors({ ...errors, [field]: errorMessage });
     }
   };
+
+  const calculateHealthAge = (dob) => {
+    const today = new Date();
+    const birthDate = new Date(dob.year, dob.month - 1, dob.day); 
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    return age;
+  };
+
+  useEffect(() => {
+    if (date.day && date.month && date.year && !errors.day && !errors.month && !errors.year) {
+      const healthAge = calculateHealthAge(date);
+      setHealthAge(healthAge);
+    }
+  }, [date, errors]); 
 
   const handleSubmit = () => {
     if (!errors.day && !errors.month && !errors.year) {
@@ -71,7 +73,7 @@ const DateInput = ({ question, onChange }) => {
     <div className="container" onKeyPress={handleKeyPress}>
       <div>
         <label><p>2</p>{question.title}</label>
-        <InfoTooltip text={question.info} />
+        <InfoTooltip text={`Your health age is: ${healthAge || 'N/A'}`} /> 
       </div>
       <div className="date-inputs">
         <div className="input-container">
