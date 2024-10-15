@@ -1,118 +1,50 @@
-# Getting Started with Create React App
+# Survey Question Screens - Front End Developer Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains my solution to the Front End Developer task for SHAPE Global. The task was to design a simple survey with multiple questions using React, and handle data fetching and saving via a JSON file.
 
-## Available Scripts
+## Project Overview
+The objective of this project is to build a user-friendly interface for a survey with five different types of questions. The responses collected from the user are stored in a JSON file after completing the survey. The task includes the following:
+Title Selection: Dropdown for selecting the user's title.
+Date of Birth: Input fields to select the user's day, month, and year of birth with validation.
+Performance Rating: A rating scale from 1 to 10 to assess other workers' performance.
+Sources of Stress: A free-text input field to enter any additional sources of stress.
+Work-Life Balance: A multiple-choice question regarding the balance between work and non-work activities.
+The user responses are saved in a JSON file after submitting the survey.
+
+## Features
+React-based UI: The project is built using React for creating an interactive user interface.
+Responsive Design: The survey screens are designed to work seamlessly across different devices.
+JSON Storage: Data is fetched from and saved to a JSON file at the end of the survey.
+Form Validation: Validations are applied to ensure the accuracy of inputs, particularly for the date of birth.
+
+## Installation
 
 In the project directory, you can run:
+
+
+1. Clone This Repo 
+
+### `git clone https://github.com/daniits/surveyquestion.git`
+
+2. Navigate to the project directory:
+
+### `cd surveyquestion`
+
+3. Install the dependencies:
+
+### `npm install`
+
+
+4. Start the development server:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+
+
+
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-A simple survey application built using React, designed to collect user responses through various question types. The app features multiple question screens, including dropdowns, date input fields, rating scales, text input, and multiple-choice options. The user’s responses are saved in a JSON file upon completion.
-
-Features
-Question Types:
-
-Dropdown for selecting titles (e.g., Mr, Ms, Dr)
-Date of Birth input with validation (day, month, year)
-Rating scale from 1-10 for performance evaluations
-Free text input for additional feedback, with a character limit
-Multiple-choice for evaluating work-life balance
-Data Handling:
-
-Uses a JSON file (public/surveyData.json) to fetch questions and store user responses.
-Local state management with React hooks for handling user inputs.
-Simple form-based UI with real-time input validation.
-Responsive Design:
-
-Compatible with mobile and desktop screens.
-Built with modern React practices to ensure smooth user experience.
-Getting Started
-Prerequisites
-Node.js installed on your machine.
-Basic knowledge of React and JSON data handling.
-Installation
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/your-username/survey-app.git
-cd survey-app
-Install dependencies:
-bash
-Copy code
-npm install
-Start the development server:
-bash
-Copy code
-npm start
-Open http://localhost:3000 to view the application in your browser.
-Usage
-Answer the questions on each screen.
-Navigate through different question types using a simple, user-friendly interface.
-Once completed, responses are saved in the surveyData.json file.
-Contributing
-Feel free to submit pull requests or open issues for bug fixes and improvements. For major changes, please open an issue first to discuss what you would like to change.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
