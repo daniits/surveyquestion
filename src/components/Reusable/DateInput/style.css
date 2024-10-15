@@ -94,4 +94,12 @@
     justify-content: end;
     align-items: center;
   }
-  
+  .error-message {
+    width: 100px;
+    padding-top: 10px;
+  }
+  .text-lenght {
+    display: flex;
+    justify-content: end;
+    
+  }

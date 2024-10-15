@@ -1,9 +1,10 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap : 20px;
+    gap: 20px;
 }
-.container > label {
+
+.container>label {
     display: flex;
     height: 30px;
     align-items: center;
@@ -12,7 +13,8 @@
     font-size: 16px;
     margin-left: -30px;
 }
-.container > label > p {
+
+.container>label>p {
     background-color: #fff;
     width: 28px;
     height: 28px;
@@ -23,17 +25,41 @@
     align-items: center;
     color: #705067;
 }
-.rating-buttons{
+
+.rating-buttons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
     width: 400px;
 }
+
 .buttons-container {
     background-color: #917D8D;
     border: 0px;
     width: 50px;
     height: 50px;
+    font-size: 16px;
     border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.buttons-container.active {
+    background-color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buttons-container:active {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ok-button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.press-enter-text {
+    margin-left: 10px;
 }

@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
-import "./style.css"
+import "./style.css";
 
 const RatingQuestion = ({ question, onChange }) => {
-  const [isActive, setActive] = useState()
-  const handleGetRatting = (id, ratting) => {
-    console.log(id, ratting)
-    onChange(id, ratting)
+  const [activeRating, setActiveRating] = useState(null); // Store active rating
 
-  }
+  const handleGetRating = (id, rating) => {
+    setActiveRating(rating);  // Set the active rating
+  };
+
+  const handleSubmit = () => {
+    if (activeRating === null) {
+      console.log("No rating selected. Please select a rating before submitting.");
+      return; // Prevent submission if no rating is selected
+    }
+
+    // Submit the selected rating and proceed to the next step
+    onChange(question.id, activeRating);
+    console.log('Rating submitted:', activeRating);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit(); // Trigger submission on Enter key press
+    }
+  };
+
   return (
-    <div className="container">
+    <div className="container" onKeyPress={handleKeyPress}>
       <label>
         <p>3.1</p>
         {question.title}
@@ -21,16 +38,16 @@ const RatingQuestion = ({ question, onChange }) => {
       <div className="rating-buttons">
         {Array.from({ length: 10 }, (_, index) => index + 1).map((rating) => (
           <button
-            className='buttons-container'
+            className={`buttons-container ${activeRating === rating ? 'active' : ''}`} // Apply active class to selected rating
             key={rating}
-            onClick={() => handleGetRatting(question.id, rating)}
+            onClick={() => handleGetRating(question.id, rating)}
           >
             {rating}
           </button>
         ))}
       </div>
       <div className='button-container'>
-        <button className="ok-button" onClick={() => console.log("OK clicked")}>OK</button>
+        <button className="ok-button" onClick={handleSubmit}>OK</button>
         <span className="press-enter-text">or press Enter</span>
       </div>
     </div>

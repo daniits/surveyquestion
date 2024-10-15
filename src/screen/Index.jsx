@@ -1,4 +1,3 @@
-// src/screens/Survey.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BalanceRating, DateInput, DropdownQuestion, RatingQuestion, TextInput } from 'components/Reusable';
@@ -7,6 +6,8 @@ const Survey = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [responses, setResponses] = useState({});
+
+  console.log(responses)
 
   useEffect(() => {
     axios.get('/surveyData.json')
@@ -20,22 +21,18 @@ const Survey = () => {
 
   const handleResponseChange = (questionId, value) => {
     setResponses((prev) => ({ ...prev, [questionId]: value }));
-  };
 
-  const handleNext = () => {
+    // Automatically move to the next question
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1);
-    }
-  };
-
-  const handleBack = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prev) => prev - 1);
+    } else {
+      handleSubmit();
     }
   };
 
   const handleSubmit = () => {
     console.log('Responses:', responses);
+    // You can add functionality to save responses or trigger an action on submission.
   };
 
   const renderQuestion = () => {
@@ -85,18 +82,7 @@ const Survey = () => {
 
   return (
     <div className="survey-container">
-      {/* <h1>Survey</h1> */}
       {renderQuestion()}
-      <div className="navigation-buttons">
-        {currentQuestionIndex > 0 && (
-          <button onClick={handleBack}>Back</button>
-        )}
-        {currentQuestionIndex < questions.length - 1 ? (
-          <button onClick={handleNext}>Next</button>
-        ) : (
-          <button onClick={handleSubmit}>Submit</button>
-        )}
-      </div>
     </div>
   );
 };
