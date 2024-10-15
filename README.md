@@ -1,4 +1,4 @@
-# Survey Question Screens - Front End Developer Task
+# Survey Question Screens
 
 This repository contains my solution to the Front End Developer task for SHAPE Global. The task was to design a simple survey with multiple questions using React, and handle data fetching and saving via a JSON file.
 
